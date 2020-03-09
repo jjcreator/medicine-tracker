@@ -38,7 +38,7 @@ body {
 
 .medicine {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
     height: 90%;
