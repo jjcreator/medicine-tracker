@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: rgb(89, 132, 161);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 35px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid green;
+    background-color: rgb(54, 52, 146);
+    color: white;
+    width: 100%;
+}
+
+#medicine-box {
+    width: 85%;
+    padding: 10px;
+    background-color: rgb(169, 195, 207);
+}
+
+.medicine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 90%;
+
+}
+
+.medicine:nth-child(even) {
+    background-color: deepskyblue;
+}
+
+.item {
+    padding: 5px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;;
+    border-collapse: separate;
+    margin: 0;
+    font-size: 20px;
+    height: 100%;
+}
+
+.item:last-child {
+    border-right: 2px solid white;
+}
+
