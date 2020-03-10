@@ -73,11 +73,12 @@ body {
     background-color: rgb(54, 52, 146);
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
 .button {
-    width: 25%;
+    width: 20%;
     color: white;
     padding: 10px;
     background-color: rgb(100, 1, 100);
@@ -88,10 +89,63 @@ body {
     font-size: 20px;
     user-select: none;
     border-radius: 10px;
+    height: 100%;
 }
 
 .button:active {
     border: 2px inset rgb(107, 79, 84);
+}
+
+#search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(100, 1, 100);
+    border: 2px solid black;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    width: 25%;
+    padding: 0 10px;
+}
+
+#search-title {
+    height: 100%;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+#search-bar {
+    height: 100%;
+    padding: 10px;
+    background-color: rgb(54, 52, 146);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    border: 2px inset rgb(128, 124, 124);
+    margin: 10px;
+    width: 60%;
+    font-size: 18px;
+    flex: 1;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: rgb(66, 64, 184);
+}
+
+#search-bar:focus::placeholder {
+    color: transparent;
+}
+
+#search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.671);
+    text-align: center;
 }
 
 #medicine-box {

@@ -1,13 +1,19 @@
-
 let datesArray = Array.from(document.querySelectorAll(".expiration-date"));
 let namesArray = Array.from(document.querySelectorAll(".medicine-name"));
+let typesArray = Array.from(document.querySelectorAll(".medicine-type"));
 let dateMethod = "fromLow";
 let nameMethod = "fromA";
+let descMethod = "fromA"
 let expirationButton = document.querySelector("#by-expiration");
 let alphabeticalButton = document.querySelector("#alphabetical");
+let typeButton = document.querySelector("#by-description");
+let medicineBox = document.querySelector("#medicine-box");
 
+
+// sorting by date
 const sortByDate = () => {
     nameMethod = "fromA";
+    descMethod = "fromA"
     let toggle;
     if (dateMethod === "fromLow") {
         toggle = 1;
@@ -33,13 +39,17 @@ const sortByDate = () => {
         else return toggle * -1;
     });
 
-    document.querySelector("#medicine-box").innerHTML = "";
+    medicineBox.innerHTML = "";
     datesArray.forEach((item)=> {
-        document.querySelector("#medicine-box").appendChild(item.parentElement);
+        medicineBox.appendChild(item.parentElement);
     });
 }
 
+expirationButton.addEventListener("click", sortByDate);
+
+//sorting by name
 const sortByName = () => {
+    descMethod = "fromA"
     dateMethod = "fromLow"
     let toggle;
     if (nameMethod === "fromA") {
@@ -52,21 +62,54 @@ const sortByName = () => {
     }
 
     namesArray.sort((a,b) => {
+            let firstName = a.innerText;
+            let secondName = b.innerText;
+            if (firstName > secondName) return toggle;
+            else return -toggle; 
+        });
+    medicineBox.innerHTML = "";
+    namesArray.forEach((item)=> {
+        if (item.parentElement.style.display != "none") {
+            medicineBox.appendChild(item.parentElement);
+        }
+        
+    });
+}
+
+alphabeticalButton.addEventListener("click", sortByName);
+
+//sorting by description
+const sortByDescription= () => {
+    dateMethod = "fromLow";
+    nameMethod = "fromA";
+    let toggle;
+    if (descMethod === "fromA") {
+    toggle = 1;
+    descMethod = "fromZ";
+    }
+    else if (descMethod === "fromZ") {
+    toggle = -1;
+        descMethod = "fromA";
+    }
+
+    typesArray.sort((a,b) => {
         let firstName = a.innerText;
         let secondName = b.innerText;
         if (firstName > secondName) return toggle;
         else return -toggle;
     });
     document.querySelector("#medicine-box").innerHTML = "";
-    namesArray.forEach((item)=> {
-        document.querySelector("#medicine-box").appendChild(item.parentElement);
+    typesArray.forEach((item)=> {
+        if (item.parentElement.style.display != "none") {
+            medicineBox.appendChild(item.parentElement);
+        }
     });
 }
-   
 
-expirationButton.addEventListener("click", sortByDate);
-alphabeticalButton.addEventListener("click", sortByName);
+typeButton.addEventListener("click", sortByDescription);
 
+
+// display todays date
 const dateUpdate = () => {
     let today = new Date;
     today = today.toLocaleDateString();
@@ -75,41 +118,50 @@ const dateUpdate = () => {
 
 dateUpdate();
 
-datesArray.forEach((item)=> {
-    let today = new Date;
-    let thisYear = today.getFullYear();
-    let expYear = item.innerText.slice(6,10);
-    let thisMonth = today.getMonth();
-    let expMonth = item.innerText.slice(3,5)-1;
-    let thisDay = today.getDate();
-    let expDay = item.innerText.slice(0,2);
 
-    if (expYear > thisYear) {
-        return;
-    }
-
-    if (expYear < thisYear) {
-        item.style.backgroundColor = "gray";
-    }
-    if (expMonth < thisMonth) {
-        item.parentElement.style.backgroundColor = "gray";
-        return;
-    }
-    if (expMonth - thisMonth > 3) {
-        return;
-    }
-    else {
-        item.parentElement.style.backgroundColor = "yellow";
-    }
-
-    if (expMonth == thisMonth) {
-        item.parentElement.style.backgroundColor = "red";
-
-        if (thisDay > expDay) {
+// highlight soon expiring / expired 
+const highlight = () => {
+    datesArray.forEach((item)=> {
+        let today = new Date;
+        let thisYear = today.getFullYear();
+        let expYear = item.innerText.slice(6,10);
+        let thisMonth = today.getMonth();
+        let expMonth = item.innerText.slice(3,5)-1;
+        let thisDay = today.getDate();
+        let expDay = item.innerText.slice(0,2);
+    
+        if (expYear > thisYear) {
+            return;
+        }
+    
+        if (expYear < thisYear) {
             item.style.backgroundColor = "gray";
         }
-    } 
-});
+        if (expMonth < thisMonth) {
+            item.parentElement.style.backgroundColor = "gray";
+            return;
+        }
+        if (expMonth - thisMonth > 3) {
+            return;
+        }
+        else {
+            item.parentElement.style.backgroundColor = "yellow";
+        }
+    
+        if (expMonth == thisMonth) {
+            item.parentElement.style.backgroundColor = "red";
+    
+            if (thisDay > expDay) {
+                item.style.backgroundColor = "gray";
+            }
+        } 
+    });
+
+}
+
+highlight();
+
+// hide / show top bar
 
 let hideButton = document.querySelector("#hide-button");
 let dateMenu = document.querySelector("#dateMenu");
@@ -133,4 +185,38 @@ dateMenu.addEventListener("transitionend", ()=> {
     if (dateMenu.style.width == "65%") {
         dateMenu.style.color = "white";
     }
-})
+});
+
+let searchInput = document.querySelector("#search-bar");
+
+searchInput.addEventListener("keyup", (e)=> {
+    let myValue = searchInput.value;
+    namesArray.forEach((name)=> {
+            name.parentElement.style.display = "flex";
+        });
+    typesArray.forEach((type)=> {
+            type.parentElement.style.display = "flex";
+        });
+    
+    searchMe(myValue);
+    nameMethod = "fromA";
+    descMethod = "fromA"
+    sortByName();
+    sortByDescription();
+    
+});
+
+const searchMe = (input) => {
+    if (input != "") {
+        let combinedArray = namesArray.concat(typesArray);
+        
+        combinedArray.forEach((item)=> {
+            console.log(item.innerText);
+            if (!item.innerText.toUpperCase().includes(input.toUpperCase())) {
+                item.parentElement.style.display = "none";
+            }
+            else item.parentElement.style.display = "flex";
+    }
+    );
+}
+}
