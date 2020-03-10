@@ -7,8 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="date">
+        <div id="dateMenu">Dzisiaj jest: <span id="current-date"></span>
+        </div>
+        <div id="hide-button">UKRYJ</div>
+    </div>
     <div class="container">
         <h1 id="title">Nasze leki</h1>
+        <div class="button-wrapper">
+            <div class="button" id="alphabetical">Posortuj alfabetycznie</div>
+            <div class="button" id="by-expiration">Posortuj po dacie ważności</div>
+        </div>
         <div id="medicine-box">
             <div class="medicine">
                 <div class="index item">1</div>
@@ -16,7 +25,7 @@
                     <p>Biseptol 960</p>
                 </div>
                 <div class="expiration-date item">
-                    <p>31.4.2021</p>
+                    <p>30.04.2021</p>
                 </div>
                 <div class="medicine-type item">
                     <p>Antybiotyk</p>
@@ -527,7 +536,7 @@
                     <p>Disnemar Baby</p>
                 </div>
                 <div class="expiration-date item">
-                    <p>Nieznana</p>
+                    <p>01.01.9999</p>
                 </div>
                 <div class="medicine-type item">
                     <p>Lek udrażniający nos</p>
@@ -1049,6 +1058,6 @@
         </div>
 
     </div>
-    <script src="medicinebox.js"></script>
+    <script src="./medicinebox.js"></script>
 </body>
 </html>

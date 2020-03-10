@@ -9,6 +9,45 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#date {
+    width: 30%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+    transition: 0.25s ease-in;
+    padding: 0;
+
+}
+
+#dateMenu {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    padding: 10px;
+    overflow: hidden;
+    background-color: blue;
+    transition: width 0.25s ease-in;
+}
+
+#hide-button {
+    background-color: green;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 15px;
+    cursor: pointer;
+    width: 25%;
+}
+
 .container {
     width: 85%;
     margin: 0 auto;
@@ -24,16 +63,42 @@ body {
     font-size: 35px;
     padding: 10px;
     text-align: center;
-    border: 1px solid green;
     background-color: rgb(54, 52, 146);
     color: white;
     width: 100%;
 }
 
+.button-wrapper {
+    width: 100%;
+    background-color: rgb(54, 52, 146);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.button {
+    width: 25%;
+    color: white;
+    padding: 10px;
+    background-color: rgb(100, 1, 100);
+    cursor: pointer;
+    border: 2px outset rgb(107, 79, 84);
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+    user-select: none;
+    border-radius: 10px;
+}
+
+.button:active {
+    border: 2px inset rgb(107, 79, 84);
+}
+
 #medicine-box {
     width: 85%;
     padding: 10px;
-    background-color: rgb(169, 195, 207);
+    background-color: deepskyblue;
+    
 }
 
 .medicine {
@@ -46,21 +111,32 @@ body {
 }
 
 .medicine:nth-child(even) {
-    background-color: deepskyblue;
+    background-color: rgb(255, 255, 255);
 }
 
 .item {
     padding: 5px;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;;
-    border-collapse: separate;
     margin: 0;
     font-size: 20px;
     height: 100%;
 }
 
-.item:last-child {
-    border-right: 2px solid white;
+.index {
+    flex-basis: 4%;
 }
 
+.expiration-date {
+    flex-basis: 10%;
+}
+
+.medicine-name {
+    flex-basis: 30%;
+}
+
+.medicine-type {
+    flex: 1;
+}
+
+.quantity {
+    flex-basis: 20%;
+}
