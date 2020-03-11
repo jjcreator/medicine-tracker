@@ -10,7 +10,7 @@ let expirationButton = document.querySelector("#by-expiration");
 let alphabeticalButton = document.querySelector("#alphabetical");
 let typeButton = document.querySelector("#by-description");
 let hideButton = document.querySelector("#hide-button");
-let dateMenu = document.querySelector("#dateMenu");
+let searchMenu = document.querySelector("#searchMenu");
 let medicineBox = document.querySelector("#medicine-box");
 let searchInput = document.querySelector("#search-bar");
 
@@ -170,25 +170,25 @@ const highlight = () => {
 
 
 hideButton.addEventListener("click", ()=> {
-    if (dateMenu.style.width == "0%") {
+    if (searchMenu.style.width == "0%") {
         hideButton.innerText = "UKRYJ";
-        dateMenu.style.width = "65%";
-        dateMenu.style.padding = "10px";
+        searchMenu.style.width = "100%";
+        searchMenu.style.padding = "10px";
         
     }
     else {
-        dateMenu.style.color = "transparent"
+        searchMenu.style.color = "transparent"
         hideButton.innerText = "POKAŻ";
-        dateMenu.style.width = "0%";
-        dateMenu.style.padding = "0px";
+        searchMenu.style.width = "0%";
+        searchMenu.style.padding = "0px";
         searchInput.style.display = "none";
         
     }
 });
 
-dateMenu.addEventListener("transitionend", ()=> {
-    if (dateMenu.style.width == "65%") {
-        dateMenu.style.color = "white";
+searchMenu.addEventListener("transitionend", ()=> {
+    if (searchMenu.style.width == "100%") {
+        searchMenu.style.color = "white";
         searchInput.style.display = "block"
     }
 });
