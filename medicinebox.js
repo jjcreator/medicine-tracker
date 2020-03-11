@@ -1,3 +1,5 @@
+// Global declarations
+
 let datesArray = Array.from(document.querySelectorAll(".expiration-date"));
 let namesArray = Array.from(document.querySelectorAll(".medicine-name"));
 let typesArray = Array.from(document.querySelectorAll(".medicine-type"));
@@ -7,7 +9,10 @@ let descMethod = "fromA"
 let expirationButton = document.querySelector("#by-expiration");
 let alphabeticalButton = document.querySelector("#alphabetical");
 let typeButton = document.querySelector("#by-description");
+let hideButton = document.querySelector("#hide-button");
+let dateMenu = document.querySelector("#dateMenu");
 let medicineBox = document.querySelector("#medicine-box");
+let searchInput = document.querySelector("#search-bar");
 
 
 // sorting by date
@@ -27,12 +32,12 @@ const sortByDate = () => {
     datesArray.sort((a, b) => {
         let expirationDate1 = new Date;
         expirationDate1.setFullYear(a.innerText.slice(6,10));
-        expirationDate1.setMonth(parseInt(a.innerText.slice(3,5))-1);
+        expirationDate1.setMonth(a.innerText.slice(3,5)-1);
         expirationDate1.setDate(a.innerText.slice(0,2));
         
         let expirationDate2 = new Date;
         expirationDate2.setFullYear(b.innerText.slice(6,10));
-        expirationDate2.setMonth(parseInt(b.innerText.slice(3,5))-1);
+        expirationDate2.setMonth(b.innerText.slice(3,5)-1);
         expirationDate2.setDate(b.innerText.slice(0,2));
 
         if (expirationDate1 > expirationDate2) return toggle;
@@ -41,7 +46,9 @@ const sortByDate = () => {
 
     medicineBox.innerHTML = "";
     datesArray.forEach((item)=> {
-        medicineBox.appendChild(item.parentElement);
+        if (item.parentElement.style.display != "none") {
+            medicineBox.appendChild(item.parentElement);
+        }
     });
 }
 
@@ -98,7 +105,7 @@ const sortByDescription= () => {
         if (firstName > secondName) return toggle;
         else return -toggle;
     });
-    document.querySelector("#medicine-box").innerHTML = "";
+    medicineBox.innerHTML = "";
     typesArray.forEach((item)=> {
         if (item.parentElement.style.display != "none") {
             medicineBox.appendChild(item.parentElement);
@@ -116,7 +123,7 @@ const dateUpdate = () => {
     document.querySelector("#current-date").innerText = today;
 }
 
-dateUpdate();
+
 
 
 // highlight soon expiring / expired 
@@ -159,12 +166,9 @@ const highlight = () => {
 
 }
 
-highlight();
-
 // hide / show top bar
 
-let hideButton = document.querySelector("#hide-button");
-let dateMenu = document.querySelector("#dateMenu");
+
 hideButton.addEventListener("click", ()=> {
     if (dateMenu.style.width == "0%") {
         hideButton.innerText = "UKRYJ";
@@ -187,36 +191,43 @@ dateMenu.addEventListener("transitionend", ()=> {
     }
 });
 
-let searchInput = document.querySelector("#search-bar");
+// Search bar functionality
 
 searchInput.addEventListener("keyup", (e)=> {
     let myValue = searchInput.value;
     namesArray.forEach((name)=> {
             name.parentElement.style.display = "flex";
         });
-    typesArray.forEach((type)=> {
-            type.parentElement.style.display = "flex";
-        });
-    
     searchMe(myValue);
     nameMethod = "fromA";
-    descMethod = "fromA"
+    dateMethod = "fromLow";
+    descMethod = "fromA";
     sortByName();
-    sortByDescription();
-    
 });
 
 const searchMe = (input) => {
     if (input != "") {
         let combinedArray = namesArray.concat(typesArray);
+        let displayArray = [];
         
         combinedArray.forEach((item)=> {
-            console.log(item.innerText);
-            if (!item.innerText.toUpperCase().includes(input.toUpperCase())) {
+            if (item.innerText.toUpperCase().includes(input.toUpperCase())) {
+                if (displayArray.indexOf(item.parentElement) === -1) {
+                    displayArray.push(item.parentElement);
+                }
+            }
+            if (item.parentElement.style.display != "none") {
                 item.parentElement.style.display = "none";
             }
-            else item.parentElement.style.display = "flex";
-    }
-    );
+        }
+        );
+
+    displayArray.forEach((parent)=> {
+        parent.style.display = "flex";
+    });
 }
 }
+// run functions
+
+dateUpdate();
+highlight();
