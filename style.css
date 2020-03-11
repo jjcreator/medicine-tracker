@@ -10,19 +10,17 @@ body {
 }
 
 #date {
-    width: 30%;
+    width: 50%;
     position: fixed;
     top: 0;
     right: 0;
     color: white;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 18px;
     transition: 0.25s ease-in;
     padding: 0;
-
 }
 
 #dateMenu {
@@ -31,21 +29,77 @@ body {
     justify-content: center;
     align-items: center;
     width: 65%;
-    padding: 10px;
+    padding: 12px;
     overflow: hidden;
-    background-color: blue;
+    background-color: rgb(89, 132, 161);
     transition: width 0.25s ease-in;
+    border-bottom-left-radius: 10px;
+    color: white;
 }
 
+#search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 0 10px;
+    width: 60%;
+}
+
+#description {
+    width: 40%;
+}
+
+#search-title {
+    height: 100%;
+    max-width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+#search-bar {
+    height: 100%;
+    padding: 5px;
+    background-color: rgb(207, 165, 165);
+    border: none;
+    color: black;
+    border-radius: 5px;
+    margin: 10px;
+    width: 70%;
+    font-size: 18px;
+    flex: 1;
+    border: 2px inset gray;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: white;
+}
+
+#search-bar:focus::placeholder {
+    color: transparent;
+}
+
+#search-bar::placeholder {
+    color: rgba(0, 0, 0, 0.507);
+    text-align: center;
+}
+
+
 #hide-button {
-    background-color: green;
+    background-color: rgb(100, 1, 100);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items:center;
     padding: 15px;
     cursor: pointer;
-    width: 25%;
+    width: 15%;
 }
 
 .container {
@@ -78,7 +132,7 @@ body {
 }
 
 .button {
-    width: 20%;
+    min-width: 20%;
     color: white;
     padding: 10px;
     background-color: rgb(100, 1, 100);
@@ -86,7 +140,7 @@ body {
     border: 2px outset rgb(107, 79, 84);
     text-align: center;
     margin: 10px;
-    font-size: 20px;
+    font-size: 18px;
     user-select: none;
     border-radius: 10px;
     height: 100%;
@@ -96,57 +150,7 @@ body {
     border: 2px inset rgb(107, 79, 84);
 }
 
-#search-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(100, 1, 100);
-    border: 2px solid black;
-    margin: 10px;
-    font-size: 20px;
-    border-radius: 10px;
-    color: white;
-    width: 25%;
-    padding: 0 10px;
-}
 
-#search-title {
-    height: 100%;
-    max-width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    
-}
-
-#search-bar {
-    height: 100%;
-    padding: 10px;
-    background-color: rgb(54, 52, 146);
-    border: none;
-    color: white;
-    border-radius: 10px;
-    border: 2px inset rgb(128, 124, 124);
-    margin: 10px;
-    width: 60%;
-    font-size: 18px;
-    flex: 1;
-}
-
-#search-bar:focus {
-    outline: none;
-    background-color: rgb(66, 64, 184);
-}
-
-#search-bar:focus::placeholder {
-    color: transparent;
-}
-
-#search-bar::placeholder {
-    color: rgba(255, 255, 255, 0.671);
-    text-align: center;
-}
 
 #medicine-box {
     width: 85%;

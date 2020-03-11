@@ -181,6 +181,7 @@ hideButton.addEventListener("click", ()=> {
         hideButton.innerText = "POKAŻ";
         dateMenu.style.width = "0%";
         dateMenu.style.padding = "0px";
+        searchInput.style.display = "none";
         
     }
 });
@@ -188,6 +189,7 @@ hideButton.addEventListener("click", ()=> {
 dateMenu.addEventListener("transitionend", ()=> {
     if (dateMenu.style.width == "65%") {
         dateMenu.style.color = "white";
+        searchInput.style.display = "block"
     }
 });
 
