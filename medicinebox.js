@@ -193,6 +193,18 @@ searchMenu.addEventListener("transitionend", ()=> {
     }
 });
 
+addEventListener("resize", ()=> {
+    if (innerWidth < 992) {
+        if (searchMenu.style.width === "0%") {
+            searchMenu.style.width = "100%";
+            searchMenu.style.color = "white";
+            searchInput.style.display = "block"
+            searchMenu.style.padding = "10px";
+        }
+    }
+
+})
+
 // Search bar functionality
 
 searchInput.addEventListener("keyup", (e)=> {
@@ -229,6 +241,8 @@ const searchMe = (input) => {
     });
 }
 }
+
+
 // run functions
 
 dateUpdate();

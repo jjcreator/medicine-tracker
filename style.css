@@ -12,7 +12,7 @@ body {
 }
 
 #search {
-    width: 50%;
+    width: 40%;
     position: fixed;
     top: 0;
     right: 0;
@@ -86,7 +86,7 @@ body {
     align-items:center;
     padding: 15px;
     cursor: pointer;
-    width: 15%;
+    max-width: 15%;
 }
 
 .container {
@@ -117,14 +117,19 @@ body {
     margin: 30px 0;
     color: white;
     font-size: 20px;
+    padding: 0 50px;
+    
 }
 
 .top-item img {
-    max-width: 70px;
+    max-width: 100px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 #myDate {
     font-weight: bold;
+    padding: 0;
 }
 
 
@@ -201,11 +206,14 @@ body {
 }
 
 .expiration-date {
-    flex-basis: 10%;
+    flex-basis: 12%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .medicine-name {
-    flex-basis: 30%;
+    flex-basis: 28%;
 }
 
 .medicine-type {
@@ -220,7 +228,6 @@ body {
     #search {
         width: 100vw;
         transition: none;
-        
     }
 
     #searchMenu {
