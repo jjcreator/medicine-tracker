@@ -21,7 +21,7 @@ let searchInput = document.querySelector("#search-bar");
 
 let medicineArray = []
 const getData = () => {
-    fetch("data.json").then(response => response.json()).then(data => {
+    fetch("https://jjcreator.github.io/Medicine-Box/data.json").then(response => response.json()).then(data => {
         medicineArray.push(...data);
         fillIn(medicineArray);
         datesArray = Array.from(document.querySelectorAll(".expiration-date"));
@@ -43,18 +43,18 @@ cancelButton.addEventListener("click", ()=> addWrapper.style.display = "none")
 
 submit.addEventListener("click", e => {
     e.preventDefault();
-    let data = {
+    let newData = {
         "name": newMedicineInputs[0].value,
         "expiration": newMedicineInputs[1].value,
         "type": newMedicineInputs[2].value,
         "quantity": newMedicineInputs[3].value
     };
-    fetch("data.json", {
+    fetch("https://jjcreator.github.io/Medicine-Box/data.json", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
           },
-        body: data
+        body: newData
     } )
         .then(response => response.json())
         .then(data => console.log("success", data))
