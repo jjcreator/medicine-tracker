@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Biseptol 960",
+        "expiration": "30.04.2021",
+        "type": "Antybiotyk",
+        "quantity": "4"
+    },
+    {
+        "name": "Ibuprofen Forte",
+        "expiration": "28.02.2021",
+        "type": "Lek przeciwbólowy",
+        "quantity": "20"
+    },
+    {
+        "name": "Vicks Antigrip",
+        "expiration": "30.09.2021",
+        "type": "Przeziębienie/grypa",
+        "quantity": "6 saszetek"
+    }
+]

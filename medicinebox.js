@@ -1,8 +1,8 @@
 // Global declarations
 
-let datesArray = Array.from(document.querySelectorAll(".expiration-date"));
-let namesArray = Array.from(document.querySelectorAll(".medicine-name"));
-let typesArray = Array.from(document.querySelectorAll(".medicine-type"));
+let datesArray;
+let namesArray;
+let typesArray;
 let dateMethod = "fromLow";
 let nameMethod = "fromA";
 let descMethod = "fromA"
@@ -14,6 +14,32 @@ let searchMenu = document.querySelector("#searchMenu");
 let medicineBox = document.querySelector("#medicine-box");
 let searchInput = document.querySelector("#search-bar");
 
+
+// Data fetching
+
+let medicineArray = []
+fetch("data.json").then(response => response.json()).then(data => {
+    medicineArray.push(...data);
+    fillIn(medicineArray);
+    datesArray = Array.from(document.querySelectorAll(".expiration-date"));
+    namesArray = Array.from(document.querySelectorAll(".medicine-name"));
+    typesArray = Array.from(document.querySelectorAll(".medicine-type"));
+});
+
+// Fill in data
+
+const fillIn = data => {
+    data.forEach(item => {
+        medicineBox.innerHTML +=`
+        <div class="medicine">
+            <div class="index item">${data.indexOf(item)+1}</div>
+            <div class="medicine-name item">${item.name}</div>
+            <div class="expiration-date item">${item.expiration}</div>
+            <div class="medicine-type item">${item.type}</div>
+            <div class="quantity item">${item.quantity}</div>
+        </div>` 
+    })
+}
 
 // sorting by date
 const sortByDate = () => {
@@ -241,6 +267,7 @@ const searchMe = (input) => {
     });
 }
 }
+
 
 
 // run functions
