@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="addMedicineWrapper">
+        <form class="addMedicine">
+            <label for="newMedicineName">Nazwa leku</label>
+            <input class="newMedicine" name="name" type="text" id="newMedicineName">
+            <label for="newMedicineExp">Data ważności</label>
+            <input class="newMedicine" name="expiration" type="text" id="newMedicineExp">
+            <label for="newMedicineType">Rodzaj leku</label>
+            <input class="newMedicine" name="type" type="text" id="newMedicineType">
+            <label for="newMedicineQuantity">Ilość</label>
+            <input class="newMedicine" name="quantity" type="text" id="newMedicineQuantity">
+            <button class="submit">Dodaj lek</button>
+        </form>
+    </div>
     <div id="search">
         <div id="searchMenu">
             <div id="search-title">Wyszukaj</div>
@@ -28,6 +41,7 @@
             <div class="button" id="alphabetical">Posortuj alfabetycznie</div>
             <div class="button" id="by-expiration">Posortuj po dacie ważności</div>
             <div class="button" id="by-description">Posortuj po opisie</div>
+            <div class="button" id="add">Dodaj lek</div>
         </div>
         <div id="medicine-box">
             <!-- <div class="medicine"> -->

@@ -16,5 +16,53 @@
         "expiration": "30.09.2021",
         "type": "Przeziębienie/grypa",
         "quantity": "6 saszetek"
+    },
+    {
+        "name": "Probiotyk DOZ",
+        "expiration": "28.02.2021",
+        "type": "Probiotyk",
+        "quantity": "20"
+    },
+    {
+        "name": "Elektrolit",
+        "expiration": "31.07.2021",
+        "type": "Preparat nawadniający",
+        "quantity": "9"
+    },
+    {
+        "name": "Rapacholin C",
+        "expiration": "31.03.2021",
+        "type": "Niestrawność",
+        "quantity": "17"
+    },
+    {
+        "name": "Urointima",
+        "expiration": "28.02.2021",
+        "type": "Lek na drogi moczowe",
+        "quantity": "21"
+    },
+    {
+        "name": "Anapran",
+        "expiration": "31.07.2021",
+        "type": "Przeciwbólowy",
+        "quantity": "17"
+    },
+    {
+        "name": "Vitrum D3 Forte",
+        "expiration": "31.07.2021",
+        "type": "Witamina D",
+        "quantity": "120"
+    },
+    {
+        "name": "Hydroxyzinum VP",
+        "expiration": "30.06.2021",
+        "type": "Lek uspokajający",
+        "quantity": "60"
+    },
+    {
+        "name": "Euthyrox N - 112",
+        "expiration": "31.05.2020",
+        "type": "Lek na tarczycę",
+        "quantity": "2 x 50"
     }
 ]

@@ -189,7 +189,7 @@ body {
 
 }
 
-.medicine:nth-child(even) {
+.medicine:nth-child(odd) {
     background-color: rgb(255, 255, 255);
 }
 
@@ -222,6 +222,28 @@ body {
 
 .quantity {
     flex-basis: 20%;
+}
+
+.addMedicineWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: teal;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addMedicine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: palevioletred;
 }
 
 @media only screen and (max-width: 992px) {

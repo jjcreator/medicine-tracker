@@ -26,6 +26,20 @@ fetch("data.json").then(response => response.json()).then(data => {
     typesArray = Array.from(document.querySelectorAll(".medicine-type"));
 });
 
+// Add new data entry
+
+let newMedicineInputs = document.querySelectorAll(".newMedicine");
+let submit = document.querySelector(".submit");
+
+submit.addEventListener("click", e => {
+    e.preventDefault();
+    let data = [];
+    newMedicineInputs.forEach(input => {
+        data.push(input.value)
+    })
+    console.log(data)
+})
+
 // Fill in data
 
 const fillIn = data => {
@@ -40,6 +54,9 @@ const fillIn = data => {
         </div>` 
     })
 }
+
+// Add new data entry
+
 
 // sorting by date
 const sortByDate = () => {
