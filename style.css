@@ -230,7 +230,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: teal;
+    background-color: rgba(0, 128, 128, 0.13);
     height: 100%;
     display: flex;
     justify-content: center;

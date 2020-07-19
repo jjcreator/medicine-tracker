@@ -8,6 +8,8 @@ let nameMethod = "fromA";
 let descMethod = "fromA"
 let expirationButton = document.querySelector("#by-expiration");
 let alphabeticalButton = document.querySelector("#alphabetical");
+let addButton = document.querySelector("#add");
+let addWrapper = document.querySelector(".addMedicineWrapper");
 let typeButton = document.querySelector("#by-description");
 let hideButton = document.querySelector("#hide-button");
 let searchMenu = document.querySelector("#searchMenu");
@@ -18,19 +20,26 @@ let searchInput = document.querySelector("#search-bar");
 // Data fetching
 
 let medicineArray = []
-fetch("data.json").then(response => response.json()).then(data => {
-    medicineArray.push(...data);
-    fillIn(medicineArray);
-    datesArray = Array.from(document.querySelectorAll(".expiration-date"));
-    namesArray = Array.from(document.querySelectorAll(".medicine-name"));
-    typesArray = Array.from(document.querySelectorAll(".medicine-type"));
-    highlight();
-});
+const getData = () => {
+    fetch("data.json").then(response => response.json()).then(data => {
+        medicineArray.push(...data);
+        fillIn(medicineArray);
+        datesArray = Array.from(document.querySelectorAll(".expiration-date"));
+        namesArray = Array.from(document.querySelectorAll(".medicine-name"));
+        typesArray = Array.from(document.querySelectorAll(".medicine-type"));
+        highlight();
+    });
+}
+
 
 // Add new data entry
 
 let newMedicineInputs = document.querySelectorAll(".newMedicine");
 let submit = document.querySelector(".submit");
+let cancelButton = document.querySelector(".cancel")
+
+addButton.addEventListener("click", ()=> addWrapper.style.display = "flex")
+cancelButton.addEventListener("click", ()=> addWrapper.style.display = "none")
 
 submit.addEventListener("click", e => {
     e.preventDefault();
@@ -49,7 +58,9 @@ submit.addEventListener("click", e => {
     } )
         .then(response => response.json())
         .then(data => console.log("success", data))
-        .catch(error => console.log("Error", error))
+        .catch(error => console.log("Error", error));
+    getData();
+    addWrapper.style.display = "none";
 })
 
 // Fill in data
@@ -66,9 +77,6 @@ const fillIn = data => {
         </div>` 
     })
 }
-
-// Add new data entry
-
 
 // sorting by date
 const sortByDate = () => {
@@ -295,8 +303,6 @@ const searchMe = (input) => {
 }
 }
 
-
-
 // run functions
-
+getData();
 dateUpdate();
