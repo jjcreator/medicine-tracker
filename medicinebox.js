@@ -24,6 +24,7 @@ fetch("data.json").then(response => response.json()).then(data => {
     datesArray = Array.from(document.querySelectorAll(".expiration-date"));
     namesArray = Array.from(document.querySelectorAll(".medicine-name"));
     typesArray = Array.from(document.querySelectorAll(".medicine-type"));
+    highlight();
 });
 
 // Add new data entry
@@ -33,11 +34,22 @@ let submit = document.querySelector(".submit");
 
 submit.addEventListener("click", e => {
     e.preventDefault();
-    let data = [];
-    newMedicineInputs.forEach(input => {
-        data.push(input.value)
-    })
-    console.log(data)
+    let data = {
+        "name": newMedicineInputs[0].value,
+        "expiration": newMedicineInputs[1].value,
+        "type": newMedicineInputs[2].value,
+        "quantity": newMedicineInputs[3].value
+    };
+    fetch("data.json", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+          },
+        body: data
+    } )
+        .then(response => response.json())
+        .then(data => console.log("success", data))
+        .catch(error => console.log("Error", error))
 })
 
 // Fill in data
@@ -167,8 +179,6 @@ const dateUpdate = () => {
 }
 
 
-
-
 // highlight soon expiring / expired 
 const highlight = () => {
     datesArray.forEach((item)=> {
@@ -290,4 +300,3 @@ const searchMe = (input) => {
 // run functions
 
 dateUpdate();
-highlight();
