@@ -1,5 +1,6 @@
 // Global declarations
 
+let deleteArray;
 let datesArray;
 let namesArray;
 let typesArray;
@@ -22,17 +23,13 @@ let searchInput = document.querySelector("#search-bar");
 let medicineArray = []
 const getData = () => {
     fetch("https://jjcreator.github.io/Medicine-Box/data.json").then(response => response.json()).then(data => {
+        medicineArray = [];
         medicineArray.push(...data);
         fillIn(medicineArray);
-        datesArray = Array.from(document.querySelectorAll(".expiration-date"));
-        namesArray = Array.from(document.querySelectorAll(".medicine-name"));
-        typesArray = Array.from(document.querySelectorAll(".medicine-type"));
-        highlight();
     });
 }
 
-
-// Add new data entry
+// Add new medicine
 
 let newMedicineInputs = document.querySelectorAll(".newMedicine");
 let submit = document.querySelector(".submit");
@@ -43,29 +40,46 @@ cancelButton.addEventListener("click", ()=> addWrapper.style.display = "none")
 
 submit.addEventListener("click", e => {
     e.preventDefault();
+    const regExp = /-/g;
     let newData = {
-        "name": newMedicineInputs[0].value,
-        "expiration": newMedicineInputs[1].value,
-        "type": newMedicineInputs[2].value,
-        "quantity": newMedicineInputs[3].value
-    };
-    fetch("https://jjcreator.github.io/Medicine-Box/data.json", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-          },
-        body: newData
-    } )
-        .then(response => response.json())
-        .then(data => console.log("success", data))
-        .catch(error => console.log("Error", error));
-    getData();
+            "name": newMedicineInputs[0].value,
+            "expiration": newMedicineInputs[1].value.split("-").reverse().join("-").replace(regExp,"."),
+            "type": newMedicineInputs[2].value,
+            "quantity": newMedicineInputs[3].value
+            };
+    medicineArray.push(newData);
+    fillIn(medicineArray);
     addWrapper.style.display = "none";
 })
+
+// Add new data entry - inactive for now due to lack of actual backend
+
+// submit.addEventListener("click", e => {
+//     e.preventDefault();
+//     let newData = {
+//         "name": newMedicineInputs[0].value,
+//         "expiration": newMedicineInputs[1].value,
+//         "type": newMedicineInputs[2].value,
+//         "quantity": newMedicineInputs[3].value
+//     };
+//     fetch("-my-json-", {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json',
+//           },
+//         body: newData
+//     } )
+//         .then(response => response.json())
+//         .then(data => console.log("success", data))
+//         .catch(error => console.log("Error", error));
+//     getData();
+//     addWrapper.style.display = "none";
+// });
 
 // Fill in data
 
 const fillIn = data => {
+    medicineBox.innerHTML = "";
     data.forEach(item => {
         medicineBox.innerHTML +=`
         <div class="medicine">
@@ -74,8 +88,14 @@ const fillIn = data => {
             <div class="expiration-date item">${item.expiration}</div>
             <div class="medicine-type item">${item.type}</div>
             <div class="quantity item">${item.quantity}</div>
+            <div class="delete item">USUŃ</div>
         </div>` 
-    })
+    });
+    datesArray = Array.from(document.querySelectorAll(".expiration-date"));
+    namesArray = Array.from(document.querySelectorAll(".medicine-name"));
+    typesArray = Array.from(document.querySelectorAll(".medicine-type"));
+    deleteArray = Array.from(document.querySelectorAll(".delete"));
+    highlight();
 }
 
 // sorting by date
@@ -306,3 +326,5 @@ const searchMe = (input) => {
 // run functions
 getData();
 dateUpdate();
+
+

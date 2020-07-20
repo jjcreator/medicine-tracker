@@ -64,5 +64,359 @@
         "expiration": "31.05.2020",
         "type": "Lek na tarczycę",
         "quantity": "2 x 50"
+    },
+    {
+        "name": "Sanprobi IBS",
+        "expiration": "30.10.2020",
+        "type": "Probiotyk",
+        "quantity": "33"
+    },
+    {
+        "name": "Aspirin C",
+        "expiration": "31.07.2021",
+        "type": "Lek przeciwbólowy/przeciwzapalny",
+        "quantity": "14"
+    },
+    {
+        "name": "Orofar MAX",
+        "expiration": "30.04.2021",
+        "type": "Lek na ból gardła",
+        "quantity": "15"
+    },
+    {
+        "name": "Dicortineff - krople",
+        "expiration": "30.11.2021",
+        "type": "Antybiotyk (ucho, oko, nos)",
+        "quantity": "butelka - zamknięta"
+    },
+    {
+        "name": "Essentiale Forte",
+        "expiration": "30.09.2020",
+        "type": "Lek na wątrobę",
+        "quantity": "58"
+    },
+    {
+        "name": "Nebbud 0.5mg",
+        "expiration": "31.12.2020",
+        "type": "Lek przeciwzapalny - inhalacja",
+        "quantity": "4"
+    },
+    {
+        "name": "CarboVP Węgiel Aktywowany",
+        "expiration": "31.05.2022",
+        "type": "Lek na zatrucia",
+        "quantity": "20"
+    },
+    {
+        "name": "Pramolan",
+        "expiration": "28.02.2022",
+        "type": "Lek uspokajający",
+        "quantity": "18"
+    },
+    {
+        "name": "Duozine",
+        "expiration": "31.03.2021",
+        "type": "Lek przeciwalergiczny",
+        "quantity": "butelka - otwarta"
+    },
+    {
+        "name": "IBUM Forte zawiesina (bananowy)",
+        "expiration": "31.07.2021",
+        "type": "Lek przeciwbólowy",
+        "quantity": "butelka - mała ilość"
+    },
+    {
+        "name": "IBUM Forte zawiesina (malinowy)",
+        "expiration": "30.08.2022",
+        "type": "Lek przeciwbólowy",
+        "quantity": "butelka - zamknięta"
+    },
+    {
+        "name": "No-spa",
+        "expiration": "31.03.2020",
+        "type": "Lek rozkurczowy",
+        "quantity": "18"
+    },
+    {
+        "name": "Bepanthen Derm Krem",
+        "expiration": "30.06.2020",
+        "type": "Krem nawilżający - emolient",
+        "quantity": "tubka - otwarta"
+    },
+    {
+        "name": "Woda morska",
+        "expiration": "30.11.2020",
+        "type": "Lek udrażniający nos",
+        "quantity": "butelka zamknięta"
+    },
+    {
+        "name": "Neospasmina",
+        "expiration": "30.11.2022",
+        "type": "Lek uspokajający",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Berodual",
+        "expiration": "30.08.2022",
+        "type": "Lek przeciwzapalny - inhalacja",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Krople żołądkowe z papaweryną",
+        "expiration": "31.07.2022",
+        "type": "Lek na niestrawność",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Debridat",
+        "expiration": "31.12.2020",
+        "type": "Lek na żołądek / przeciwskurczowy",
+        "quantity": "1"
+    },
+    {
+        "name": "Juvit C",
+        "expiration": "31.05.2021",
+        "type": "Witamina C",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Dicortineff",
+        "expiration": "30.11.2020",
+        "type": "Antybiotyk (ucho, oko, nos)",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Vita-miner",
+        "expiration": "30.11.2021",
+        "type": "Witamina (multi)",
+        "quantity": "60"
+    },
+    {
+        "name": "Lioton 1000",
+        "expiration": "30.08.2022",
+        "type": "Żel heparynowy",
+        "quantity": "tubka otwarta"
+    },
+    {
+        "name": "Woda morska",
+        "expiration": "30.11.2020",
+        "type": "Lek udrażniający nos",
+        "quantity": "butelka zamknięta"
+    },
+    {
+        "name": "Disnemar Baby",
+        "expiration": "01.01.9999",
+        "type": "Lek udrażniający nos",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Debutir",
+        "expiration": "30.11.2021",
+        "type": "Lek na jelita",
+        "quantity": "45"
+    },
+    {
+        "name": "Alantan - maść",
+        "expiration": "30.06.2021",
+        "type": "Maść na skórę",
+        "quantity": "tubka otwarta"
+    },
+    {
+        "name": "Cyclo-3-fort",
+        "expiration": "31.07.2021",
+        "type": "Lek na naczynia krwionośne",
+        "quantity": "21"
+    },
+    {
+        "name": "Hascosept",
+        "expiration": "30.11.2022",
+        "type": "Lek na gardło",
+        "quantity": "butelka - otwarta"
+    },
+    {
+        "name": "Hascovir lipożel",
+        "expiration": "30.10.2020",
+        "type": "Lek na opryszczkę",
+        "quantity": "tubka otwarta"
+    },
+    {
+        "name": "Tormentiol",
+        "expiration": "31.07.2020",
+        "type": "Maść na rany",
+        "quantity": "tubka zamknięta"
+    },
+    {
+        "name": "Floxal",
+        "expiration": "30.03.2022",
+        "type": "Lek do oczu",
+        "quantity": "tubka zamknięta"
+    },
+    {
+        "name": "Neosine - syrop",
+        "expiration": "30.09.2021",
+        "type": "Lek przeciwirusowy",
+        "quantity": "butelka zamknięta"
+    },
+    {
+        "name": "Lavistina",
+        "expiration": "30.10.2020",
+        "type": "Lek na zawroty głowy",
+        "quantity": "21"
+    },
+    {
+        "name": "Furaginum",
+        "expiration": "30.11.2023",
+        "type": "Lek na układ moczowy",
+        "quantity": "30"
+    },
+    {
+        "name": "Flegamina - syrop",
+        "expiration": "31.05.2021",
+        "type": "Lek wykrztuśny",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Hitaxa",
+        "expiration": "30.06.2021",
+        "type": "Syrop przeciwalergiczny",
+        "quantity": "butelka otwarta pełna"
+    },
+    {
+        "name": "Paracetamol - syrop",
+        "expiration": "31.05.2020",
+        "type": "Lek przeciwbólowy / przeciwgorączkowy",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Levopront - syrop",
+        "expiration": "31.03.2021",
+        "type": "Lek przeciwkaszlowy",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Syrop tymiankowy złożony",
+        "expiration": "30.09.2021",
+        "type": "Lek wykrztuśny",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Syrop prawoślazowy",
+        "expiration": "30.09.2020",
+        "type": "Lek łagodzący na gardło",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Ibuprom zatoki",
+        "expiration": "30.08.2022",
+        "type": "Lek przeciwbólowy (+zatoki)",
+        "quantity": "9"
+    },
+    {
+        "name": "Octeangin",
+        "expiration": "31.03.2024",
+        "type": "Lek przeciwbólowy (gardło)",
+        "quantity": "7"
+    },
+    {
+        "name": "Otrivin",
+        "expiration": "30.09.2022",
+        "type": "Lek na katar",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Nasivin Kids",
+        "expiration": "30.08.2021",
+        "type": "Lek na katar",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Nasivin Kids",
+        "expiration": "30.04.2022",
+        "type": "Lek na katar",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Erdomed",
+        "expiration": "30.09.2024",
+        "type": "Lek wykrztuśny",
+        "quantity": "18"
+    },
+    {
+        "name": "Bioracef",
+        "expiration": "31.03.2021",
+        "type": "Antybiotyk",
+        "quantity": "14"
+    },
+    {
+        "name": "Neosine Forte",
+        "expiration": "30.12.2022",
+        "type": "Lek przeciwwirusowy",
+        "quantity": "26"
+    },
+    {
+        "name": "Rupafin",
+        "expiration": "30.06.2022",
+        "type": "Lek przeciwalergiczny",
+        "quantity": "6"
+    },
+    {
+        "name": "Nebbud 0.25mg",
+        "expiration": "30.08.2021",
+        "type": "Lek przeciwzapalny - inhalacja (dziecko)",
+        "quantity": "9"
+    },
+    {
+        "name": "Doxyciclinum TZF",
+        "expiration": "31.01.2023",
+        "type": "Antybiotyk",
+        "quantity": "15 (10+5)"
+    },
+    {
+        "name": "Allertec Wapno Plus",
+        "expiration": "31.03.2021",
+        "type": "Lek przeciwalergiczny",
+        "quantity": "pół tubki"
+    },
+    {
+        "name": "Prenalen",
+        "expiration": "01.03.2021",
+        "type": "Preparat na odporność (czosnek + wit)",
+        "quantity": "10"
+    },
+    {
+        "name": "Neosine - syrop",
+        "expiration": "30.11.2020",
+        "type": "Lek przeciwwirusowy",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Flegamina Baby - krople",
+        "expiration": "04.04.2020",
+        "type": "Lek wykrztuśny",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Sinecod - syrop",
+        "expiration": "31.05.2021",
+        "type": "Lek przeciwkaszlowy",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Woda utleniona",
+        "expiration": "30.05.2021",
+        "type": "Dezynfekcja",
+        "quantity": "butelka zamknięta"
+    },
+    {
+        "name": "Octenisept",
+        "expiration": "31.01.2024",
+        "type": "Dezynfekcja",
+        "quantity": "butelka otwarta"
+    },
+    {
+        "name": "Echinacea",
+        "expiration": "01.01.2021",
+        "type": "Lek na odporność",
+        "quantity": "20"
     }
 ]
