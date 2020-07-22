@@ -16,13 +16,15 @@ let hideButton = document.querySelector("#hide-button");
 let searchMenu = document.querySelector("#searchMenu");
 let medicineBox = document.querySelector("#medicine-box");
 let searchInput = document.querySelector("#search-bar");
+let itemsArray = document.querySelector(".item");
 
 
 // Data fetching
 
 let medicineArray = []
 const getData = () => {
-    fetch("https://jjcreator.github.io/Medicine-Box/data.json").then(response => response.json()).then(data => {
+    fetch("data.json").then(response => response.json()).then(data => {
+        console.log(data)
         medicineArray = [];
         medicineArray.push(...data);
         fillIn(medicineArray);
@@ -76,7 +78,15 @@ submit.addEventListener("click", e => {
 //     addWrapper.style.display = "none";
 // });
 
-// Fill in data
+// Fill in data, remove item
+
+const removeMe = e => {
+    let elementToRemove = e.target.parentElement;
+    let indexToRemove = elementToRemove.children[0].innerText;
+    medicineArray.splice(indexToRemove - 1, 1);
+    fillIn(medicineArray);
+    e.target.removeEventListener("click", removeMe)
+}
 
 const fillIn = data => {
     medicineBox.innerHTML = "";
@@ -88,13 +98,16 @@ const fillIn = data => {
             <div class="expiration-date item">${item.expiration}</div>
             <div class="medicine-type item">${item.type}</div>
             <div class="quantity item">${item.quantity}</div>
-            <div class="delete item">USUŃ</div>
+            <div class="delete">USUŃ</div>
         </div>` 
     });
     datesArray = Array.from(document.querySelectorAll(".expiration-date"));
     namesArray = Array.from(document.querySelectorAll(".medicine-name"));
     typesArray = Array.from(document.querySelectorAll(".medicine-type"));
     deleteArray = Array.from(document.querySelectorAll(".delete"));
+    deleteArray.forEach(item => {
+        item.addEventListener("click", removeMe)
+    })
     highlight();
 }
 
@@ -208,6 +221,10 @@ const dateUpdate = () => {
 
 
 // highlight soon expiring / expired 
+const changeColor = (target, color) => {
+    Array.from(target.parentElement.children).forEach(child => child.className != "delete"? child.style.backgroundColor = color: null);
+}
+
 const highlight = () => {
     datesArray.forEach((item)=> {
         let today = new Date;
@@ -223,24 +240,24 @@ const highlight = () => {
         }
     
         if (expYear < thisYear) {
-            item.style.backgroundColor = "gray";
+            changeColor(item, "gray");
         }
         if (expMonth < thisMonth) {
-            item.parentElement.style.backgroundColor = "gray";
+            changeColor(item, "gray");
             return;
         }
         if (expMonth - thisMonth > 3) {
             return;
         }
         else {
-            item.parentElement.style.backgroundColor = "yellow";
+            changeColor(item, "yellow");
         }
     
         if (expMonth == thisMonth) {
-            item.parentElement.style.backgroundColor = "red";
+            changeColor(item, "#E03616");
     
             if (thisDay > expDay) {
-                item.style.backgroundColor = "gray";
+                changeColor(item, "gray");
             }
         } 
     });
@@ -249,17 +266,20 @@ const highlight = () => {
 
 // hide / show top bar
 
+const triangle = document.querySelector(".triangle")
 
 hideButton.addEventListener("click", ()=> {
     if (searchMenu.style.width == "0%") {
-        hideButton.innerText = "UKRYJ";
+        triangle.style.borderLeft = "15px solid white";
+        triangle.style.borderRight = "none"
         searchMenu.style.width = "100%";
-        searchMenu.style.padding = "10px";
+        searchMenu.style.padding = "12px";
         
     }
     else {
+        triangle.style.borderLeft = "none";
+        triangle.style.borderRight = "15px solid white";
         searchMenu.style.color = "transparent"
-        hideButton.innerText = "POKAŻ";
         searchMenu.style.width = "0%";
         searchMenu.style.padding = "0px";
         searchInput.style.display = "none";
@@ -280,7 +300,7 @@ addEventListener("resize", ()=> {
             searchMenu.style.width = "100%";
             searchMenu.style.color = "white";
             searchInput.style.display = "block"
-            searchMenu.style.padding = "10px";
+            searchMenu.style.padding = "12px";
         }
     }
 

@@ -9,9 +9,8 @@ html {
 }
 
 body {
-    background-color: white;
+    background-color: rgb(41,148,178);
     background-image: url(images/blue-1323101.png);
-    background-repeat: repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -38,8 +37,10 @@ body {
     width: 85%;
     padding: 12px;
     overflow: hidden;
-    background-color: rgb(89, 132, 161);
+    background-color: #23A7CC;
     transition: width 0.25s ease-in;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
     border-bottom-left-radius: 10px;
     color: white;
 }
@@ -57,7 +58,7 @@ body {
 #search-bar {
     height: 100%;
     padding: 5px;
-    background-color: rgb(248, 216, 216);
+    background-color: white;
     border: none;
     color: black;
     border-radius: 5px;
@@ -83,29 +84,43 @@ body {
 }
 
 #hide-button {
-    background-color: rgb(100, 1, 100);
+    background-color: #2994B2;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items:center;
-    padding: 15px;
+    padding: 12px 15px;
     cursor: pointer;
-    max-width: 15%;
+    width: 50px;
+    min-width: 50px;
+    border-bottom: 1px solid white;
+}
+
+.triangle {
+    width: 0; 
+    height: 0; 
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent; 
+    border-left: 15px solid white; 
+}
+
+#current-date {
+    color: black;
 }
 
 .container {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 100px;
-    background-color: rgb(89, 132, 161);
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 32px;
 }
 
 #top-bar {
-    background-color: rgb(54, 52, 146);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,7 +134,7 @@ body {
     align-items: center;
     min-height: 100%;
     margin: 30px 0;
-    color: white;
+    color: black;
     font-size: 20px;
     padding: 0 50px;
     
@@ -136,19 +151,48 @@ body {
     padding: 0;
 }
 
-
 #title {
     font-size: 35px;
     padding: 10px;
     text-align: center;
-    background-color: rgb(54, 52, 146);
-    color: white;
+    color: black;
     width: 40%;
+}
+
+.legend {
+    display: flex;
+    font-size: 18px;
+}
+
+.legend-item {
+    padding: 10px;
+    text-align: start;
+}
+
+.legend-item::before {
+    content: "";
+    margin: 0 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    
+}
+
+#exp-in-3m::before {
+    background-color: yellow;
+}
+
+#exp-in-1m::before {
+    background-color: #E03616;
+}
+
+#expired::before {
+    background-color: gray;
 }
 
 .button-wrapper {
     width: 100%;
-    background-color: rgb(54, 52, 146);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,9 +203,9 @@ body {
     min-width: 20%;
     color: white;
     padding: 10px;
-    background-color: rgb(100, 1, 100);
+    background-color: #23A7CC;
+    border: 2px solid black;
     cursor: pointer;
-    border: 2px outset rgb(107, 79, 84);
     text-align: center;
     margin: 10px;
     font-size: 18px;
@@ -172,63 +216,83 @@ body {
 }
 
 .button:active {
-    border: 2px inset rgb(107, 79, 84);
+    background-color: #2994B2;
 }
 
-#medicine-box {
-    width: 85%;
+.label-container {
+    width: 90%;
     padding: 10px;
-    background-color: deepskyblue;
-    
+}
+
+.label {
+    padding: 5px;
+    border: 1px solid black;
+    border-right: none;
+    text-align: center;
+    background-color: #23A7CC;
+    color: white;
+    /* font-weight: bolder; */
+}
+
+.box {
+    width: 90%;
+    padding: 10px;
 }
 
 .medicine {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
-    height: 90%;
-
-}
-
-.medicine:nth-child(odd) {
-    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 100%;
 }
 
 .item {
     padding: 5px;
     margin: 0;
-    font-size: 20px;
+    font-size: 16px;
     height: 100%;
+    border: 1px solid black;
+    border-right: none;
 }
 
-.index {
+.index, .index-label {
     flex-basis: 4%;
-    
 }
 
-.expiration-date {
+.expiration-date, .expiration-date-label {
     flex-basis: 12%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
 }
 
-.medicine-name {
+.medicine-name, .medicine-name-label  {
     flex-basis: 28%;
 }
 
-.medicine-type {
-    flex: 1;
+.medicine-type, .medicine-type-label {
+    flex-basis: 40%;
 }
 
-.quantity {
+.quantity, .quantity-label {
     flex-basis: 20%;
+    border: 1px solid black;
 }
 
-.delete {
+.delete, .delete-label {
     cursor: pointer;
-    color: red;
+    color: white;
+    padding: 5px 10px;
+    background-color: #23A7CC;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.delete-label {
+    opacity: 0;
+}
+
+.delete:active {
+    background-color: #2994B2;
 }
 
 .addMedicineWrapper {
@@ -284,9 +348,36 @@ body {
     width: 45%;
     border-radius: 5px;
     border: 2px outset gray;
+    outline: none;
 }
 
-@media only screen and (max-width: 992px) {
+.addMedicine button:active {
+    border: 2px inset gray;
+}
+
+@media (max-width: 450px) {
+
+    .top-item img {
+        width: 60px;
+    }
+    #title {
+        font-size: 18px;
+    }
+
+    #myDate p {
+        font-size: 16px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+@media (min-width: 451px) and (max-width: 992px) {
     #search {
         width: 100vw;
         transition: none;
@@ -306,13 +397,12 @@ body {
         display: none;
     }
 
-
     .container {
         width: 100%;
     }
 
     #medicine-box {
-        width: 95%;
+        width: 100%;
     }
 
     .index {
@@ -323,4 +413,10 @@ body {
         font-size: 16px;
     }
 
+}
+
+@media (max-width: 1500px) {
+    .container {
+        width: 95%;
+    }
 }
