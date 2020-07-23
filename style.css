@@ -1,3 +1,5 @@
+/* General Rules */
+
 * {
     padding: 0;
     margin: 0;
@@ -13,6 +15,8 @@ body {
     background-image: url(images/blue-1323101.png);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Search bar */
 
 #search {
     width: 40%;
@@ -104,15 +108,15 @@ body {
     border-left: 15px solid white; 
 }
 
-#current-date {
-    color: black;
-}
+/* Top panel */
 
 .container {
     width: 90%;
     margin: 0 auto;
     margin-top: 100px;
-    background-color: white;
+    background: linear-gradient(66deg, 50% #fff, 100% #23A7CC);
+    background: rgb(255,255,255);
+    background: linear-gradient(305deg, rgba(35,167,204,1) 0%, rgba(255,255,255,1) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,6 +150,10 @@ body {
     margin-left: 20px;
 }
 
+#current-date {
+    color: black;
+}
+
 #myDate {
     font-weight: bold;
     padding: 0;
@@ -176,7 +184,6 @@ body {
     height: 15px;
     border-radius: 50%;
     display: inline-block;
-    
 }
 
 #exp-in-3m::before {
@@ -200,7 +207,7 @@ body {
 }
 
 .button {
-    min-width: 20%;
+    min-width: 15%;
     color: white;
     padding: 10px;
     background-color: #23A7CC;
@@ -208,30 +215,34 @@ body {
     cursor: pointer;
     text-align: center;
     margin: 10px;
-    font-size: 18px;
+    font-size: 16px;
     user-select: none;
     border-radius: 10px;
     height: 100%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .button:active {
     background-color: #2994B2;
 }
 
-.label-container {
-    width: 90%;
-    padding: 10px;
-}
+/* Medicine box */
 
-.label {
-    padding: 5px;
+.labels {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     border: 1px solid black;
+    background-color: #23A7CC;
+    height: 40px;
+}
+.label {
+    padding: 10px;
     border-right: none;
     text-align: center;
     background-color: #23A7CC;
     color: white;
-    /* font-weight: bolder; */
+    border-right: 1px solid black;
+    height: 100%;
 }
 
 .box {
@@ -243,17 +254,26 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px;
-    height: 100%;
+    border: 1px solid black;
+    border-bottom: none;
+    height: fit-content;
+}
+
+.medicine:last-child {
+    border-bottom: 1px solid black;
 }
 
 .item {
-    padding: 5px;
+    padding: 10px;
     margin: 0;
     font-size: 16px;
     height: 100%;
-    border: 1px solid black;
-    border-right: none;
+    border-right: 1px solid black;
+    min-height: 100%;
+    border-bottom: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .index, .index-label {
@@ -262,6 +282,7 @@ body {
 
 .expiration-date, .expiration-date-label {
     flex-basis: 12%;
+    text-align: center;
 }
 
 .medicine-name, .medicine-name-label  {
@@ -274,26 +295,36 @@ body {
 
 .quantity, .quantity-label {
     flex-basis: 20%;
-    border: 1px solid black;
 }
 
-.delete, .delete-label {
+.quantity {
+    border-bottom: none;
+}
+
+.delete {
     cursor: pointer;
     color: white;
     padding: 5px 10px;
     background-color: #23A7CC;
     border: 2px solid black;
     border-radius: 5px;
-    margin-left: 5px;
+    margin: 0px 5px;
 }
 
 .delete-label {
-    opacity: 0;
+    opacity: 1;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    color: white;
+    margin: 0 5px;
+    user-select: none;
 }
 
 .delete:active {
     background-color: #2994B2;
 }
+
+/* Add medicine modal */
 
 .addMedicineWrapper {
     position: fixed;
@@ -355,39 +386,41 @@ body {
     border: 2px inset gray;
 }
 
-@media (max-width: 450px) {
+/* Media queries */
 
-    .top-item img {
-        width: 60px;
+@media (max-width: 1500px) {
+    .container {
+        width: 95%;
     }
-    #title {
-        font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+    .legend {
+        flex-direction: column;
     }
 
-    #myDate p {
+    .box {
+        width: 95%;
+    }
+
+    .legend-item {
         font-size: 16px;
     }
 
-    .button {
-        font-size: 14px;
+    .item {
+        height: 60px;
     }
+}
 
-    .container {
+@media (max-width: 1000px) {
+    .box {
         width: 100%;
     }
 }
 
 @media (min-width: 451px) and (max-width: 992px) {
-    #search {
-        width: 100vw;
-        transition: none;
-    }
 
-    #searchMenu {
-        width: 100%;
-        border-radius: 0px;
-        transition: none;
-    }
+    
 
     .button {
         font-size: 15px;
@@ -401,22 +434,111 @@ body {
         width: 100%;
     }
 
-    #medicine-box {
-        width: 100%;
-    }
-
-    .index {
-        display: none;
-    }
-
     .item {
         font-size: 16px;
     }
 
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 450px) {
+    #search {
+        width: 100vw;
+        transition: none;
+        height: 10vh;
+    }
+
+    #search-title {
+        font-size: 16px;
+    }
+
+    #search-bar {
+        font-size: 16px
+    }
+
+    #searchMenu {
+        width: 100%;
+        border-radius: 0px;
+        transition: none;
+        border: none;
+    }
+
+    #hide-button {
+        display: none;
+    }
+
+    #myDate {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    .top-item img {
+        width: 60px;
+        margin: 0;
+    }
+
+    .legend-item {
+        font-size: 14px;
+    }
+
+    .button-wrapper {
+        padding: 5px;
+        display: grid;
+        grid-template: 1fr 1fr/1fr 1fr;
+        grid-gap: 5px;
+        margin-top: 10px;
+    }
+
+    .box {
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .index-label, .index {
+        display: none
+    }
+
+    .item, .label {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .medicine {
+        height: 100%;
+    }
+
+    .button {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 14px;
+
+    }
+
     .container {
-        width: 95%;
+        border-radius: 0px;
+        margin-top: 10vh;
+        background: #fff;
+    }
+    
+
+    #title {
+        font-size: 16px;
+    }
+
+    #myDate p {
+        font-size: 15px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 100%;
     }
 }
+
+
+

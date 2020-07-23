@@ -98,7 +98,7 @@ const fillIn = data => {
             <div class="expiration-date item">${item.expiration}</div>
             <div class="medicine-type item">${item.type}</div>
             <div class="quantity item">${item.quantity}</div>
-            <div class="delete">USUŃ</div>
+            <div class="delete">X</div>
         </div>` 
     });
     datesArray = Array.from(document.querySelectorAll(".expiration-date"));
