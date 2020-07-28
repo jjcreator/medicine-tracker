@@ -7,15 +7,15 @@ let typesArray;
 let dateMethod = "fromLow";
 let nameMethod = "fromA";
 let descMethod = "fromA"
-let expirationButton = document.querySelector("#by-expiration");
-let alphabeticalButton = document.querySelector("#alphabetical");
-let addButton = document.querySelector("#add");
-let addWrapper = document.querySelector(".addMedicineWrapper");
-let typeButton = document.querySelector("#by-description");
-let hideButton = document.querySelector("#hide-button");
-let searchMenu = document.querySelector("#searchMenu");
+let expirationButton = document.querySelector(".by-expiration");
+let alphabeticalButton = document.querySelector(".alphabetical");
+let addButton = document.querySelector(".add");
+let addWrapper = document.querySelector(".add-medicine-wrapper");
+let typeButton = document.querySelector(".by-description");
+let hideButton = document.querySelector(".hide-button");
+let searchMenu = document.querySelector(".search-menu");
 let medicineBox = document.querySelector("#medicine-box");
-let searchInput = document.querySelector("#search-bar");
+let searchInput = document.querySelector(".search-bar");
 let itemsArray = document.querySelector(".item");
 
 
@@ -24,7 +24,6 @@ let itemsArray = document.querySelector(".item");
 let medicineArray = []
 const getData = () => {
     fetch("data.json").then(response => response.json()).then(data => {
-        console.log(data)
         medicineArray = [];
         medicineArray.push(...data);
         fillIn(medicineArray);
@@ -33,7 +32,7 @@ const getData = () => {
 
 // Add new medicine
 
-let newMedicineInputs = document.querySelectorAll(".newMedicine");
+let newMedicineInputs = document.querySelectorAll(".new-medicine");
 let submit = document.querySelector(".submit");
 let cancelButton = document.querySelector(".cancel")
 
@@ -216,7 +215,7 @@ typeButton.addEventListener("click", sortByDescription);
 const dateUpdate = () => {
     let today = new Date;
     today = today.toLocaleDateString();
-    document.querySelector("#current-date").innerText = today;
+    document.querySelector(".current-date").innerText = today;
 }
 
 

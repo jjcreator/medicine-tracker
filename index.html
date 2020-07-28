@@ -7,55 +7,57 @@
     <title>Medicine Box</title>
 </head>
 <body>
-    <div class="addMedicineWrapper">
+    <div class="add-medicine-wrapper">
         <form class="addMedicine">
             <h3>Dodaj lek</h3>
-            <label for="newMedicineName">Nazwa leku</label>
-            <input class="newMedicine" name="name" type="text" id="newMedicineName" required>
-            <label for="newMedicineExp">Data ważności</label>
-            <input class="newMedicine" name="expiration" type="date" id="newMedicineExp" required>
-            <label for="newMedicineType">Rodzaj leku</label>
-            <input class="newMedicine" name="type" type="text" id="newMedicineType" required>
-            <label for="newMedicineQuantity">Ilość</label>
-            <input class="newMedicine" name="quantity" type="text" id="newMedicineQuantity" required>
+            <label for="new-medicine-name">Nazwa leku</label>
+            <input class="new-medicine" name="name" type="text" id="new-medicine-name" required>
+            <label for="new-medicine-exp">Data ważności</label>
+            <input class="new-medicine" name="expiration" type="date" id="new-medicine-exp" required>
+            <label for="new-medicine-type">Rodzaj leku</label>
+            <input class="new-medicine" name="type" type="text" id="new-medicine-type" required>
+            <label for="new-medicine-quantity">Ilość</label>
+            <input class="new-medicine" name="quantity" type="text" id="new-medicine-quantity" required>
             <div class="buttons">
                 <button type="submit" class="submit">Dodaj</button>
                 <button class="cancel">Anuluj</button>
             </div>
         </form>
     </div>
-    <div id="search">
-        <div id="searchMenu">
-            <div id="search-title">Wyszukaj</div>
-                <input id="search-bar" type="text" placeholder="szukaj">
+    <div class="search">
+        <div class="search-menu">
+            <div class="search-title">Wyszukaj</div>
+            <input class="search-bar" type="text" placeholder="szukaj">
         </div>
-        <div id="hide-button"><div class="triangle"></div></div>
+        <div class="hide-button">
+            <div class="triangle"></div>
+        </div>
     </div>
     <div class="container">
-        <div id="top-bar">
+        <div class="top-bar">
             <div class="top-item">
                 <img src="images/medicine-2801025_640.png" alt="medicine"/>
             </div>
-            <h1 id="title">Posiadane leki</h1>
-            <div class="top-item" id="myDate">
-                <p>Dzisiaj jest: <span id="current-date"></span></p>
+            <h1 class="title">Posiadane leki</h1>
+            <div class="top-item" id="my-date">
+                <p>Dzisiaj jest: <span class="current-date"></span></p>
             </div>
         </div>
         <div class="legend">
-            <p class="legend-item" id="exp-in-3m">Termin ważności - do 3 miesięcy</p>
-            <p class="legend-item" id="exp-in-1m">Termin ważności - do miesiąca</p>
-            <p class="legend-item" id="expired">Przeterminowany</p>
+            <p class="legend-item exp-in-3m">Termin ważności - do 3 miesięcy</p>
+            <p class="legend-item exp-in-1m">Termin ważności - do miesiąca</p>
+            <p class="legend-item expired">Przeterminowany</p>
 
         </div>
         <div class="button-wrapper">
-            <div class="button" id="alphabetical">Sortuj alfabetycznie</div>
-            <div class="button" id="by-expiration">Sortuj po dacie</div>
-            <div class="button" id="by-description">Sortuj po opisie</div>
-            <div class="button" id="add">Dodaj lek</div>
+            <div class="button alphabetical">Sortuj alfabetycznie</div>
+            <div class="button by-expiration">Sortuj po dacie</div>
+            <div class="button by-description">Sortuj po opisie</div>
+            <div class="button add">Dodaj lek</div>
         </div>
         <div class="box">
             <div class="labels">
-                <div class="label index-label">Nr</div>
+                <div class="label index-label">#</div>
                 <div class="label medicine-name-label">Nazwa</div>
                 <div class="label expiration-date-label">Termin</div>
                 <div class="label medicine-type-label">Rodzaj</div>
