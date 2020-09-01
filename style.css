@@ -61,6 +61,7 @@ body {
 
 .search-bar {
     height: 100%;
+    min-height: 3vh;
     padding: 5px;
     background-color: white;
     border: none;
@@ -114,9 +115,6 @@ body {
     width: 90%;
     margin: 0 auto;
     margin-top: 100px;
-    /* background: linear-gradient(66deg, 50% #fff, 100% #23A7CC);
-    background: rgb(255,255,255);
-    background: linear-gradient(305deg, rgba(35,167,204,1) 0%, rgba(255,255,255,1) 100%); */
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -329,7 +327,7 @@ body {
 
 /* Add medicine modal */
 
-.add-medicine-wrapper {
+.add-medicine__wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -455,10 +453,10 @@ body {
     .container {
         width: 100%;
         border-radius: 0;
-        margin: 0;
+        margin-top: 6vh;
     }
 
-    .item, .label {
+    .item, .label, .delete {
         font-size: 13px;
     }
 
@@ -468,6 +466,37 @@ body {
 
 }
 
+@media (max-width: 775px) {
+    .top-item img {
+        width: 100px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    #my-date {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 700px) {
+    .medicine-name, .medicine-name-label {
+        flex-basis: 23%;
+    }
+
+    .expiration-date, .expiration-date-label {
+        flex-basis: 15%;
+    }
+
+    .quantity, .quantity-label {
+        flex-basis: 20%;
+    }
+    .item, .label {
+        padding: 8px;
+    }
+
+}
 @media (max-width: 450px) {
     .search {
         width: 100%;
@@ -483,11 +512,12 @@ body {
         font-size: 15px
     }
 
-    .searchMenu {
+    .search-menu {
         width: 100%;
         border-radius: 0px;
         transition: none;
         border: none;
+        padding: 5px;
     }
 
     .hide-button {
@@ -495,7 +525,9 @@ body {
     }
 
     .container {
-        margin: 0;
+        margin-top: 6vh;
+        width: 100%;
+        border-radius: 0;
     }
 
     .my-date {
@@ -561,12 +593,6 @@ body {
         font-size: 14px;
 
     }
-
-    .container {
-        border-radius: 0px;
-        margin-top: 10vh;
-        background: #fff;
-    }
     
     .title {
         font-size: 16px;
@@ -579,11 +605,4 @@ body {
     .button {
         font-size: 14px;
     }
-
-    .container {
-        width: 100%;
-    }
 }
-
-
-

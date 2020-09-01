@@ -10,7 +10,7 @@ let descMethod = "fromA"
 let expirationButton = document.querySelector(".by-expiration");
 let alphabeticalButton = document.querySelector(".alphabetical");
 let addButton = document.querySelector(".add");
-let addWrapper = document.querySelector(".add-medicine-wrapper");
+let addWrapper = document.querySelector(".add-medicine__wrapper");
 let typeButton = document.querySelector(".by-description");
 let hideButton = document.querySelector(".hide-button");
 let searchMenu = document.querySelector(".search-menu");
@@ -77,7 +77,7 @@ submit.addEventListener("click", e => {
 //     addWrapper.style.display = "none";
 // });
 
-// Fill in data, remove item
+// Remove item
 
 const removeMe = e => {
     let elementToRemove = e.target.parentElement;
@@ -86,6 +86,8 @@ const removeMe = e => {
     fillIn(medicineArray);
     e.target.removeEventListener("click", removeMe)
 }
+
+// Fill in data
 
 const fillIn = data => {
     medicineBox.innerHTML = "";
@@ -111,6 +113,7 @@ const fillIn = data => {
 }
 
 // sorting by date
+
 const sortByDate = () => {
     nameMethod = "fromA";
     descMethod = "fromA"
@@ -150,6 +153,7 @@ const sortByDate = () => {
 expirationButton.addEventListener("click", sortByDate);
 
 //sorting by name
+
 const sortByName = () => {
     descMethod = "fromA"
     dateMethod = "fromLow"
@@ -181,6 +185,7 @@ const sortByName = () => {
 alphabeticalButton.addEventListener("click", sortByName);
 
 //sorting by description
+
 const sortByDescription= () => {
     dateMethod = "fromLow";
     nameMethod = "fromA";
@@ -212,14 +217,15 @@ typeButton.addEventListener("click", sortByDescription);
 
 
 // display todays date
+
 const dateUpdate = () => {
     let today = new Date;
     today = today.toLocaleDateString();
     document.querySelector(".current-date").innerText = today;
 }
 
+// highlight soon expiring / expired
 
-// highlight soon expiring / expired 
 const changeColor = (target, color) => {
     Array.from(target.parentElement.children).forEach(child => child.className != "delete"? child.style.backgroundColor = color: null);
 }
@@ -302,7 +308,6 @@ addEventListener("resize", ()=> {
             searchMenu.style.padding = "12px";
         }
     }
-
 })
 
 // Search bar functionality
