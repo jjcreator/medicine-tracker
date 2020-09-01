@@ -1,6 +1,6 @@
 # Medicine tracker
 
-Medicine tracker lets you keep track of your medicines. It automatically labels expired / soon to expire items, lets the user sort data by name, expiration date and type and allows for a keyword search in the database. Data is stored externally in a JSON file and is not editable.
+Medicine tracker lets you keep track of your medicines. It automatically labels expired / soon to expire items, lets the user sort data by name, expiration date and type and allows for a keyword search in the database. Data is stored externally in a JSON file and is not editable from the app level.
 
 [![medicine tracker](/medicinebox.png)](https://jjcreator.github.io/Medicine-Box/)
 
