@@ -101,6 +101,10 @@ body {
     border-bottom: 1px solid white;
 }
 
+.hide-button:hover {
+    background-color: black;
+}
+
 .triangle {
     width: 0; 
     height: 0; 
@@ -262,6 +266,10 @@ body {
     height: fit-content;
 }
 
+.medicine:hover {
+    background-color: rgb(160, 195, 207);
+}
+
 .medicine:last-child {
     border-bottom: 1px solid black;
 }
@@ -305,17 +313,28 @@ body {
     border-bottom: none;
 }
 
-.delete, .delete-label {
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+.delete-label { 
+    margin: 0px 5px;
+    flex:1;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     justify-content: center;
     margin: 0px 5px;
 }
 
-.delete {
-    cursor: pointer;
+.delete-button {
+    color: white;
+    border-radius: 5px;
     background-color: #E03616;
+    padding: 5px 10px;
+}
+
+.delete-button:hover {
+    background-color: black;
 }
 
 .delete-label {
@@ -324,7 +343,7 @@ body {
     color: transparent;
 }
 
-.delete:active {
+.delete-button:active {
     background-color: #000;
 }
 
