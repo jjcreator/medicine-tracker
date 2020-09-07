@@ -12,14 +12,14 @@ html {
 
 body {
     background-color: rgb(41,148,178);
-    background-image: url(images/blue-1323101.png);
+    /* background-image: url(images/blue-1323101.png); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Search bar */
 
 .search {
-    width: 40%;
+    width: 35%;
     position: fixed;
     top: 0;
     right: 0;
@@ -61,17 +61,17 @@ body {
 
 .search-bar {
     height: 100%;
-    min-height: 3vh;
+    min-height: 25px;
+    max-height: 40px;
     padding: 5px;
     background-color: white;
     border: none;
     color: black;
-    border-radius: 5px;
     margin: 10px;
     width: 50%;
     font-size: 16px;
     flex: 1;
-    border: 2px inset gray;
+    border: 0px inset gray;
 }
 
 .search-bar:focus {
@@ -207,18 +207,21 @@ body {
 }
 
 .button {
-    min-width: 15%;
+    min-width: 14%;
     color: white;
     padding: 10px;
     background-color: #23A7CC;
-    border: 2px solid black;
     cursor: pointer;
     text-align: center;
     margin: 10px;
     font-size: 16px;
     user-select: none;
-    border-radius: 10px;
+    border-radius: 50px;
     height: 100%;
+}
+
+.button:hover {
+    background-color: black;
 }
 
 .button:active {
@@ -312,17 +315,17 @@ body {
 
 .delete {
     cursor: pointer;
-    background-color: #23A7CC;
-    border: 2px solid black;
+    background-color: #E03616;
 }
 
 .delete-label {
-    border: 2px solid transparent;
+    border: 0px solid transparent;
     user-select: none;
+    color: transparent;
 }
 
 .delete:active {
-    background-color: #2994B2;
+    background-color: #000;
 }
 
 /* Add medicine modal */
