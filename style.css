@@ -260,10 +260,9 @@ body {
 .medicine {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     border: 1px solid black;
     border-bottom: none;
-    height: fit-content;
 }
 
 .medicine:hover {
@@ -313,27 +312,23 @@ body {
     border-bottom: none;
 }
 
-.delete-label { 
-    margin: 0px 5px;
-    flex:1;
-}
-
 .delete {
     display: flex;
     align-items: center;
     cursor: pointer;
     justify-content: center;
-    margin: 0px 5px;
-}
-
-.delete-button {
-    color: white;
-    border-radius: 5px;
+    padding: 3px;
     background-color: #E03616;
-    padding: 5px 10px;
+    color: white;
+    
 }
 
-.delete-button:hover {
+.delete, .delete-label {
+    flex: 1;
+    padding: 10px;
+}
+
+.delete:hover {
     background-color: black;
 }
 
@@ -514,7 +509,7 @@ body {
     .quantity, .quantity-label {
         flex-basis: 20%;
     }
-    .item, .label {
+    .item, .label, .delete {
         padding: 8px;
     }
 
@@ -552,8 +547,8 @@ body {
         border-radius: 0;
     }
 
-    .my-date {
-        font-size: 15px;
+    #my-date {
+        font-size: 14px;
         font-weight: normal;
     }
 
@@ -587,23 +582,21 @@ body {
         flex-basis: 19%;
     }
 
-    .item, .label {
+    .item, .label, .delete {
         padding: 3px;
         font-size: 12px;
     }
 
     .medicine-type, .medicine-type-label {
-        flex-basis: 25%;
+        flex-basis: 30%;
     }
 
     .delete {
         font-size: 12px;
-        padding: 5px;
-        flex-basis: 4%;
     }
 
-    .medicine {
-        height: 100%;
+    .delete-button {
+        padding: 5px 5px
     }
 
     .button {
