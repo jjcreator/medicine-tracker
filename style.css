@@ -12,7 +12,6 @@ html {
 
 body {
     background-color: rgb(41,148,178);
-    /* background-image: url(images/blue-1323101.png); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -79,8 +78,44 @@ body {
     background-color: white;
 }
 
+.search-bar:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.search-bar:focus::-moz-placeholder {
+    color: transparent;
+}
+
+.search-bar:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.search-bar:focus::-ms-input-placeholder {
+    color: transparent;
+}
+
 .search-bar:focus::placeholder {
     color: transparent;
+}
+
+.search-bar::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.507);
+    text-align: center;
+}
+
+.search-bar::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.507);
+    text-align: center;
+}
+
+.search-bar:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.507);
+    text-align: center;
+}
+
+.search-bar::-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.507);
+    text-align: center;
 }
 
 .search-bar::placeholder {
@@ -219,7 +254,10 @@ body {
     text-align: center;
     margin: 10px;
     font-size: 16px;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     border-radius: 50px;
     height: 100%;
 }
@@ -319,8 +357,7 @@ body {
     justify-content: center;
     padding: 3px;
     background-color: #E03616;
-    color: white;
-    
+    color: white;   
 }
 
 .delete, .delete-label {
@@ -334,7 +371,10 @@ body {
 
 .delete-label {
     border: 0px solid transparent;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     color: transparent;
 }
 
@@ -606,7 +646,6 @@ body {
         align-items: center;
         margin: 0;
         font-size: 14px;
-
     }
     
     .title {
