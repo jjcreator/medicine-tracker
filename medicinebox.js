@@ -23,11 +23,18 @@ let itemsArray = document.querySelector(".item");
 
 let medicineArray = []
 const getData = () => {
-    fetch("data.json").then(response => response.json()).then(data => {
-        medicineArray = [];
-        medicineArray.push(...data);
+    if(!localStorage.getItem("medicineData")) {
+        fetch("data.json").then(response => response.json()).then(data => {
+            medicineArray = [];
+            medicineArray.push(...data);
+            fillIn(medicineArray);
+            localStorage.setItem("medicineData", JSON.stringify(medicineArray))
+        });
+    }
+    else {
+        medicineArray = JSON.parse(localStorage.getItem("medicineData"));
         fillIn(medicineArray);
-    });
+    }
 }
 
 // Add new medicine
@@ -50,32 +57,9 @@ submit.addEventListener("click", e => {
             };
     medicineArray.push(newData);
     fillIn(medicineArray);
+    localStorage.setItem("medicineData", JSON.stringify(medicineArray));
     addWrapper.style.display = "none";
 })
-
-// Add new data entry - inactive for now due to lack of actual backend
-
-// submit.addEventListener("click", e => {
-//     e.preventDefault();
-//     let newData = {
-//         "name": newMedicineInputs[0].value,
-//         "expiration": newMedicineInputs[1].value,
-//         "type": newMedicineInputs[2].value,
-//         "quantity": newMedicineInputs[3].value
-//     };
-//     fetch("-my-json-", {
-//         method: "POST",
-//         headers: {
-//             'Content-Type': 'application/json',
-//           },
-//         body: newData
-//     } )
-//         .then(response => response.json())
-//         .then(data => console.log("success", data))
-//         .catch(error => console.log("Error", error));
-//     getData();
-//     addWrapper.style.display = "none";
-// });
 
 // Remove item
 
@@ -83,7 +67,8 @@ const removeMe = e => {
     let elementToRemove = e.target.parentElement;
     let indexToRemove = elementToRemove.children[0].innerText;
     medicineArray.splice(indexToRemove - 1, 1);
-    fillIn(medicineArray);
+    localStorage.setItem("medicineData", JSON.stringify(medicineArray));
+    fillIn(JSON.parse(localStorage.getItem("medicineData")) || medicineArray);
     e.target.removeEventListener("click", removeMe)
 }
 

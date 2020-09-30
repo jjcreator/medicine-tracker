@@ -356,8 +356,9 @@ body {
     cursor: pointer;
     justify-content: center;
     padding: 3px;
-    background-color: #E03616;
-    color: white;   
+    background-color: #a52208;
+    color: white;
+    font-weight: bold;
 }
 
 .delete, .delete-label {
