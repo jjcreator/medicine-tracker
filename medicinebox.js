@@ -4,6 +4,7 @@ let deleteArray;
 let datesArray;
 let namesArray;
 let typesArray;
+let sortingMethod;
 let dateMethod = "fromLow";
 let nameMethod = "fromA";
 let descMethod = "fromA"
@@ -47,6 +48,7 @@ addButton.addEventListener("click", ()=> addWrapper.style.display = "flex")
 cancelButton.addEventListener("click", ()=> addWrapper.style.display = "none")
 
 submit.addEventListener("click", e => {
+    console.log(e.target)
     e.preventDefault();
     const regExp = /-/g;
     let newData = {
@@ -58,6 +60,7 @@ submit.addEventListener("click", e => {
     medicineArray.push(newData);
     fillIn(medicineArray);
     localStorage.setItem("medicineData", JSON.stringify(medicineArray));
+    document.querySelector(".add-medicine").reset();
     addWrapper.style.display = "none";
 })
 
@@ -69,7 +72,8 @@ const removeMe = e => {
     medicineArray.splice(indexToRemove - 1, 1);
     localStorage.setItem("medicineData", JSON.stringify(medicineArray));
     fillIn(JSON.parse(localStorage.getItem("medicineData")) || medicineArray);
-    e.target.removeEventListener("click", removeMe)
+    e.target.removeEventListener("click", removeMe);
+    sortAgain(sortingMethod);
 }
 
 // Fill in data
@@ -94,12 +98,14 @@ const fillIn = data => {
     deleteArray.forEach(item => {
         item.addEventListener("click", removeMe)
     })
+    sortAgain(sortingMethod);
     highlight();
 }
 
 // sorting by date
 
 const sortByDate = () => {
+    sortingMethod = "byDate";
     nameMethod = "fromA";
     descMethod = "fromA"
     let toggle;
@@ -140,8 +146,9 @@ expirationButton.addEventListener("click", sortByDate);
 //sorting by name
 
 const sortByName = () => {
-    descMethod = "fromA"
-    dateMethod = "fromLow"
+    sortingMethod = "byName";
+    descMethod = "fromA";
+    dateMethod = "fromLow";
     let toggle;
     if (nameMethod === "fromA") {
     toggle = 1;
@@ -172,6 +179,8 @@ alphabeticalButton.addEventListener("click", sortByName);
 //sorting by description
 
 const sortByDescription= () => {
+    sortingMethod = "byDesc";
+    console.log(sortingMethod);
     dateMethod = "fromLow";
     nameMethod = "fromA";
     let toggle;
@@ -199,6 +208,20 @@ const sortByDescription= () => {
 }
 
 typeButton.addEventListener("click", sortByDescription);
+
+
+// remember last sorting method
+
+const sortAgain = sortingMethod => {
+    console.log(sortingMethod);
+    switch (sortingMethod) {
+        case "byName": sortByName(); sortByName(); break;
+        case "byDate": sortByDate(); sortByDate(); break;
+        case "byDesc": sortByDescription(); sortByDescription(); break;
+        default: break;
+    }
+}
+
 
 
 // display todays date

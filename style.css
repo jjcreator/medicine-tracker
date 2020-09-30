@@ -359,6 +359,7 @@ body {
     background-color: #a52208;
     color: white;
     font-weight: bold;
+    user-select: none;
 }
 
 .delete, .delete-label {
