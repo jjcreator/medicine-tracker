@@ -2,7 +2,7 @@
 
 A small app to easily keep track of your medicines. It automatically labels expired / soon to expire items, lets the user sort data by name, expiration date and type and allows for a keyword search in the database. Data is first fetched from a JSON file, but then stored locally and fully editable.
 
-[![medicine tracker](/medicinebox.png)](https://jjcreator.github.io/Medicine-Box/)
+[![medicine tracker](/medicinebox.png)](https://jjcreator.github.io/medicine-tracker/)
 
 
 ## Technologies
@@ -27,7 +27,7 @@ This project was created to practice Javascript. It allows the user to display, 
 
 ## Launch
 
-Hosted on Github Pages - https://jjcreator.github.io/Medicine-Box/
+Hosted on Github Pages - https://jjcreator.github.io/medicine-tracker/
 
 ## Sources
 
